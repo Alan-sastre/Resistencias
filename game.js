@@ -7,6 +7,7 @@ const config = {
   width: 1000,
   height: 500,
   parent: "game-container",
+  backgroundColor: "#001532",
   physics: {
     default: "arcade",
     arcade: {
@@ -18,6 +19,8 @@ const config = {
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
+    expandParent: true,
+    orientation: Phaser.Scale.Orientation.LANDSCAPE,
   },
 };
 

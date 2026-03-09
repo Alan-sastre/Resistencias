@@ -38,8 +38,18 @@ export default class BasePuzzleScene extends Phaser.Scene {
 
     this.input.on("drag", (_, gameObject, dragX, dragY) => {
       if (!gameObject.locked && !this.completed) {
-        gameObject.x = dragX;
-        gameObject.y = dragY;
+        const halfWidth = (gameObject.displayWidth || 0) * 0.5;
+        const halfHeight = (gameObject.displayHeight || 0) * 0.5;
+        gameObject.x = Phaser.Math.Clamp(
+          dragX,
+          halfWidth,
+          this.scale.width - halfWidth,
+        );
+        gameObject.y = Phaser.Math.Clamp(
+          dragY,
+          halfHeight,
+          this.scale.height - halfHeight,
+        );
       }
     });
 
